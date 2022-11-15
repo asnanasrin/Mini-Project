@@ -1,0 +1,29 @@
+{% load static %}
+<html>
+    <head>
+        <style>  
+            body{  
+              font-family: Calibri, Helvetica, sans-serif;  
+              background-color: pink;  
+              background-image: url('/static/assets/img/slide/5.jpg');
+                    background-repeat: no-repeat;
+                    background-attachment: fixed; 
+                    background-size: cover;
+                    padding: 50px 350px;
+            } 
+            </style> 
+
+    </head>
+    <body>
+        <form action="/viewcase/" method="POST">
+            {% csrf_token %}
+        <center><h1><b>Enter Your Vehicle Number</b></h1><br><br><br>
+            <label for="psw"><b>Vehicle No</b></label>  
+        <input type="text" placeholder="Enter Password" name="vehicleno" id="vehicleno" required>  </center><br><br>
+      
+        <!-- <label for="psw-repeat"><b>Name</b></label>  
+        <input type="text" placeholder="Retype Password" name="uname" id="uname" required>  -->
+        <center><button type="submit" href="/viewcase" class="registerbtn">Search</button></center> 
+        </form>  
+    </body>
+</html>

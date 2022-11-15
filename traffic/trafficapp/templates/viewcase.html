@@ -1,0 +1,48 @@
+{% load static %}
+<html>
+    <head>
+        <title>TRAFFIC SQUAD</title>
+        <style>
+            body {
+                background-color: white;
+                background-image: url('/static/assets/img/slide/5.jpg');
+                background-repeat: no-repeat;
+                background-attachment: fixed; 
+                background-size: 100% 100%;
+            }
+      </style>
+    </head>
+    <body ><br><br>
+        <h1 align="center" style="color: white;"><b>VIEW CASE</b> </h1>
+        <form action="/result/" method="POST">
+            {% csrf_token %}
+            <table align="center" border="5">
+                <br><br><br><br>
+                <tr>
+                    <th><b>Case Name</b></th>
+                    <th><b>Description</b></th>
+                    <!-- <th><b>Location</b></th> -->
+                    <th><b>Vehicleno</b></th>
+                    <th><b>Vehicleownername</b></th>
+                    <th><b>Vehicleownerid</b></th>
+                    <th><b>Amount</b></th>
+                    <th><b>Date</b></th>
+                    <th><b>Pay</b></th>
+                    
+                </tr>
+                {% for i in cr %}
+                <tr>
+                    <td><b>{{ i.casename}}</b></td>
+                    <td><b>{{ i.discription}}</b></td>
+                    <td><b>{{ i.vehicleno}}</b></td>
+                    <td><b>{{ i.uname}}</b></td>
+                    <td><b>{{ i.vehicleownerid}}</b></td>
+                    <td><b>{{ i.amount}}</b></td>
+                    <td><b>{{ i.date}}</b></td>
+                    <td><b><a href="https://www.paypal.com/in/home">Make Payment</a></b></td>
+                </tr>
+                {% endfor %}
+            </table>
+        </form>
+    </body>
+</html>

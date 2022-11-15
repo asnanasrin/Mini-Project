@@ -1,0 +1,54 @@
+{% load static %}
+<html>
+    <head>
+        <title>TRAFFIC SQUAD</title>
+        <style>
+            body {
+                background-color: white;
+                /* background-image: url('/static/assets/img/im2.jpg'); */
+                background-repeat: no-repeat;
+                background-attachment: fixed; 
+                background-size: 100% 100%;
+            }
+      </style>
+    </head>
+    <body ><br><br>
+        <h1 align="center" ><B>VIEW CHALLAN</B> </h1>
+        <form action="/result/" method="POST">
+            {% csrf_token %}
+            <table align="center" border="5">
+                <br><br><br><br>
+                {% for i in cr %}
+                <tr>
+                    <th><b>Case Name</b></th>
+                    <td><b>{{ i.casename}}</b></td>
+                </tr>
+                <tr>
+                    <th><b>Description</b></th>
+                    <td><b>{{ i.discription}}</b></td>
+                </tr>
+                <tr>
+                    <th><b>Vehicleno</b></th>
+                    <td><b>{{ i.vehicleno}}</b></td>
+                </tr>
+                <tr>
+                    <th><b>Vehicle Owner Name</b></th>
+                    <td><b>{{ i.uname}}</b></td>
+                </tr>
+                <tr>
+                    <th><b>Vehicle Owner Id</b></th>
+                    <td><b>{{ i.vehicleownerid}}</b></td>
+                </tr>    
+                <tr>
+                    <th><b>Amount</b></th>
+                    <td><b>{{ i.amount}}</b></td>
+                </tr>
+                <tr>
+                    <th><b>Date</b></th>
+                    <td><b>{{ i.date}}</b></td>
+                </tr>   
+                {% endfor %}
+            </table>
+        </form>
+    </body>
+</html>
